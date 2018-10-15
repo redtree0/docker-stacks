@@ -115,7 +115,8 @@ WORKDIR $HOME
 
 # Configure container startup
 ENTRYPOINT ["tini", "-g", "--"]
-CMD ["start-notebook.sh"]
+CMD ["start-notebook.sh", "--allow-root"]
+# CMD ["start-notebook.sh", "--NotebookApp.token=''"]
 
 # Add local files as late as possible to avoid cache busting
 COPY start.sh /usr/local/bin/
