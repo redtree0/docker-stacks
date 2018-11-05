@@ -30,10 +30,10 @@ RUN apt-get update && apt-get -yq dist-upgrade \
  && rm -rf /var/lib/apt/lists/*
 
 ENV PYTHON_VERSION 3.6.0
-WORKDIR /root
+WORKDIR /tmp
 
 # Download and compile python
-ADD "https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz" /root/Python-${PYTHON_VERSION}.tgz
+ADD "https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz" /tmp/Python-${PYTHON_VERSION}.tgz
 RUN tar zxvf "Python-${PYTHON_VERSION}.tgz" \
         && cd Python-${PYTHON_VERSION} \
         && ./configure \
