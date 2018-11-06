@@ -28,7 +28,7 @@ RUN apt-get update && apt-get -yq dist-upgrade \
     git \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
-
+# 3.4.3-1
 ENV PYTHON_VERSION 3.6.0
 WORKDIR /tmp
 
@@ -88,8 +88,8 @@ RUN cd /tmp && \
     $CONDA_DIR/bin/conda config --system --prepend channels conda-forge && \
     $CONDA_DIR/bin/conda config --system --set auto_update_conda false && \
     $CONDA_DIR/bin/conda config --system --set show_channel_urls true && \
-    $CONDA_DIR/bin/conda install --quiet --yes conda="${MINICONDA_VERSION%.*}.*" && \
-    $CONDA_DIR/bin/conda update --all --quiet --yes && \
+    # $CONDA_DIR/bin/conda install --quiet --yes conda="${MINICONDA_VERSION%.*}.*" && \
+    # $CONDA_DIR/bin/conda update --all --quiet --yes && \
     conda clean -tipsy && \
     rm -rf /home/$NB_USER/.cache/yarn && \
     fix-permissions $CONDA_DIR && \
